@@ -17,4 +17,6 @@ extern status destroylist(linklist *);
 extern status listinsert(linklist, int, elemtype);
 extern void print(elemtype);
 extern status listtraverse(linklist, void(*vi)(elemtype));
+extern status createlist1(linklist l, int n);
+extern status createlist(linklist l, int n);
 #endif

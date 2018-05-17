@@ -1,4 +1,5 @@
 #include "list.h"
+#pragma warning (disable:4996)
 status initlist(linklist *l) {
 	*l = malloc(sizeof(lnode));
 	if (!*l) return ERROR;
@@ -41,5 +42,31 @@ status listtraverse(linklist l, void(*vi)(elemtype)) {
 		vi(p->data);
 		p = p->next;
 	}
+	return OK;
+}
+
+status createlist(linklist l, int n) { //head insert
+	linklist p;
+	while (n-- > 0) {
+		p = malloc(sizeof(lnode));
+		if (!p) return ERROR;
+		p->next = l->next;
+		l->next = p;
+		scanf("%d", &p->data);
+	}
+	return OK;
+}
+
+status createlist1(linklist l, int n) { //tail insert
+	linklist p, r;
+	r = l;
+	while (n-- > 0) {
+		p = malloc(sizeof(lnode));
+		if (!p) return ERROR;
+		r->next = p;
+		r = p;
+		scanf("%d", &p->data);
+	}
+	r->next = NULL;
 	return OK;
 }
