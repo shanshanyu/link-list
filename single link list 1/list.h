@@ -15,8 +15,15 @@ typedef struct lnode {
 extern status initlist(linklist *);
 extern status destroylist(linklist *);
 extern status listinsert(linklist, int, elemtype);
+extern status listinsert1(linklist, int, elemtype);
 extern void print(elemtype);
 extern status listtraverse(linklist, void(*vi)(elemtype));
 extern status createlist1(linklist l, int n);
 extern status createlist(linklist l, int n);
+extern int listlength(linklist l);
+extern status listdelete(linklist l, int i, elemtype *e);
+extern linklist getelemp(linklist l, int i);
+extern int listlength(linklist l);
+extern status clearlist(linklist l);
+extern status getelem(linklist l, int i, elemtype *e);
 #endif
