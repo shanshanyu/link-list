@@ -56,11 +56,11 @@ status listinsert1(linklist l, int i, elemtype e) {
 status listdelete(linklist l, int i, elemtype *e) {
 	linklist p = l, q;
 	int j = 0;
-	while (j < i - 1 && p) {
+	while (j < i - 1 && p->next) {
 		p = p->next;
 		j++;
 	}
-	if (j > i - 1 || !p) return ERROR;
+	if (j > i - 1 || !p->next) return ERROR;
 	q = p->next;
 	p->next = q->next;
 	*e = q->data;
